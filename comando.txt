@@ -1,0 +1,49 @@
+
+*Django
+python -m pip install django
+
+*Entorno virtual
+python -m pip install virtualenv
+
+*Crear entorno
+python -m venv env
+
+*Levantar entorno virtual
+env\Scripts\activate
+
+*Desactivar el entorno
+desactivate
+
+Creación de proyecto en Django
+django-admin.py startproject nombreProyecto
+
+Creación de una aplicación
+django-admin.py startapp nombre
+
+Crear super usuario
+django-admin.py createsuperuser
+
+manage.py (crear migraciones, hacer migraciones. Es un empaquetador django-admin.py)
+
+Hacer migración:
+manage.py makemigrations
+
+Migrar
+manage.py migrate
+
+Correr el servidor
+manage.py runserver
+
+ctdus
+pcode
+
+
+Estructura de un proyecto -> aplicación web en DJANGO
+Aplicación -> módulo o funcionalidad de nuestro proyecto.
+
+Relaciones
+Uno a muchos : ForeginKey
+uno a uno : OneToOneField
+muchos a muchos : ManyToManyField -> vacuna = models.ManyToManyField(Vacuna)
+
+

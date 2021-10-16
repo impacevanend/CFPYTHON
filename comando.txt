@@ -46,4 +46,49 @@ Uno a muchos : ForeginKey
 uno a uno : OneToOneField
 muchos a muchos : ManyToManyField -> vacuna = models.ManyToManyField(Vacuna)
 
+Ver modelos desde el administrador
+registrar (dir/app) en admin.py
 
+Shell y Qerysets
+
+python manage.py shell
+
+importar los modelos en Shell:
+
+from mascota.models import Mascota, Vacunas
+from adopcion.models import Persona
+
+Creando objeto en Shell:
+
+creación por Objeto:
+Persona.objects.create(nombre='angie',apellidos='alejo',edad =22,email='angie@example.com',domicilio ='mi casa')
+
+Asignando una variable: 
+p = Persona.objects.create(nombre='camila',apellidos='alejo',edad =22,email='angie@example.com',domicilio ='mi casa')
+p.save()
+
+Asignando valores con llave foranea:
+mascota1 = Mascota.objects.create(nombre = 'kakshi',sexo = 'macho',edad_aproximada = 2,fecha_rescate ='2016-09-01',persona = p)
+mascota1.save()
+
+
+Asignando muchos a muchos:
+
+v1 = Vacunas(nombre= 'vacuna 1')
+v1.save()
+v2 = Vacunas(nombre= 'vacuna 2')
+v2.save()
+
+La relacion es: mascota1.vacuna.add(v1,v2)
+>>> mascota1.save()
+
+Queryset o Consultas:
+
+Obtener todos los registros que guarda una tabla
+Persona.objects.all()
+
+Filtrar por un elemento
+Persona.objects.filter(id=2)
+
+Filtrar por contenido: 
+Persona.objects.filter(nombre__contains="camila")
